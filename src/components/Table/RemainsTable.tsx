@@ -11,7 +11,7 @@ export default function RemainsTable({ id }: { id: string }) {
 
   useEffect(() => {
     axios
-      .get(`https://195.189.226.96:8000/remains${id}`)
+      .get(`http://195.189.226.96:8000/remains${id}`)
       .then((response) => {
         setRemains(response.data);
       })

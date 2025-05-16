@@ -12,7 +12,7 @@ export default function TableWithSearch() {
 
   useEffect(() => {
     axios
-      .get('https://195.189.226.96:8000/products')
+      .get('http://195.189.226.96:8000/products')
       .then((response) => {
         setProduct(response.data);
       })
