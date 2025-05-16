@@ -10,6 +10,7 @@ export default function RemainsTable({ id }: { id: string }) {
   const [remains, setRemains] = useState<Remains[]>([]);
 
   useEffect(() => {
+    if (!id) return; // не делаем запрос, если id пустой
     axios
       .get(`https://taurus.pp.ua/remains${id}`)
       .then((response) => {
@@ -18,26 +19,29 @@ export default function RemainsTable({ id }: { id: string }) {
       .catch((error) => {
         console.error('Ошибка загрузки данных:', error);
       });
-  }, [id]); // добавили id в зависимости
-
+  }, [id]);
+  console.log('id', id);
+  console.log('remains', remains);
   return (
-    <table className={css.table}>
-      <thead>
-        <tr>
-          <th>Номенклатура</th>
-          <th>Остаток</th>
-          <th>Партия</th>
-        </tr>
-      </thead>
-      <tbody>
-        {remains.map((item, index) => (
-          <tr key={index}>
-            <td>{item.nomenclature}</td>
-            <td>{item.buh}</td>
-            <td>{item.nomenclature_series}</td>
+    <div className={css.productTable}>
+      <table className={css.table}>
+        <thead>
+          <tr>
+            <th>Номенклатура</th>
+            <th>Остаток</th>
+            <th>Партия</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {remains.map((item, index) => (
+            <tr key={index}>
+              <td>{item.nomenclature}</td>
+              <td>{item.buh}</td>
+              <td>{item.nomenclature_series}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
