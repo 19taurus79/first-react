@@ -9,8 +9,30 @@
 // import TableProducts from './test/TableRemains';
 // import SearchProduct from './test/SearchProduct';
 import TableWithSearch from './Table/TableWithSearch';
-
+import React from 'react';
+import { useEffect, useState } from 'react';
 export default function App() {
+  const ALLOWED_IDS = [123456789, 987654321]; // замените на нужные Telegram ID
+
+  const [isAllowed, setIsAllowed] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    // Проверяем наличие Telegram WebApp SDK
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.ready();
+      const userId = window.Telegram.WebApp.initDataUnsafe?.user?.id;
+      if (userId && ALLOWED_IDS.includes(userId)) {
+        setIsAllowed(true);
+      } else {
+        setIsAllowed(false);
+      }
+    } else {
+      setIsAllowed(false);
+    }
+  }, []);
+
+  if (isAllowed === null) return <div>Загрузка...</div>;
+  if (!isAllowed) return <div>Доступ запрещён</div>;
   // const [clicks, setClicks] = useState(0);
   // const handleClick = () => {
   //   setClicks(clicks + 1);
