@@ -17,4 +17,27 @@
   background: #fff;
   z-index: 10;
   padding: 8px 0;
+  display: flex;
+  align-items: center;
+}
+
+.clearBtn {
+  margin-left: 8px;
+  background: #eee;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearBtn:hover {
+  background: #d32f2f;
+  color: #fff;
 }

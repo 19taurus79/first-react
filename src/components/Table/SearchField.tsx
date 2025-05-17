@@ -13,6 +13,16 @@ export function SearchField({ value, onChange }: SearchFieldProps) {
         onChange={(e) => onChange(e.target.value)}
         className={css.input}
       />
+      {value && (
+        <button
+          type="button"
+          className={css.clearBtn}
+          onClick={() => onChange('')}
+          aria-label="Очистить"
+        >
+          ×
+        </button>
+      )}
     </div>
   );
 }

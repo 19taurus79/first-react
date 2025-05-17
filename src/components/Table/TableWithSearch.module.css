@@ -1,20 +1,23 @@
 .table {
   width: 100%;
   border-collapse: collapse;
-  margin: 16px 0;
+  /* margin: 16px 0; */
   font-size: 16px;
+  /* border: 1px solid #2d2b2b; */
+  /* border-radius: 4px; */
 }
 
 .table th,
 .table td {
   border: 1px solid #ddd;
   padding: 8px 12px;
-  text-align: left;
+  /* text-align: left; */
 }
 
 .table th {
   background-color: #f4f4f4;
   font-weight: bold;
+  text-align: center;
 }
 
 .table tr:nth-child(even) {
@@ -29,4 +32,10 @@
   height: 50vh;
   overflow: hidden;
   overflow-y: scroll;
+}
+.remainsData {
+  text-align: center;
+}
+.remainsNomenclature {
+  text-align: center;
 }
