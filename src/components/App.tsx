@@ -9,7 +9,7 @@
 // import TableProducts from './test/TableRemains';
 // import SearchProduct from './test/SearchProduct';
 import TableWithSearch from './Table/TableWithSearch';
-import React from 'react';
+// import React from 'react';
 import { useEffect, useState } from 'react';
 export default function App() {
   const ALLOWED_IDS = [123456789, 987654321]; // замените на нужные Telegram ID
