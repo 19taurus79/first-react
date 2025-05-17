@@ -12,7 +12,7 @@ import TableWithSearch from './Table/TableWithSearch';
 // import React from 'react';
 import { useEffect, useState } from 'react';
 export default function App() {
-  const ALLOWED_IDS = [123456789, 987654321]; // замените на нужные Telegram ID
+  const ALLOWED_IDS = [123456789, 987654321, 548019148]; // замените на нужные Telegram ID
 
   const [isAllowed, setIsAllowed] = useState<boolean | null>(null);
 
