@@ -8,7 +8,7 @@
 // import { useState } from 'react';
 // import TableProducts from './test/TableRemains';
 // import SearchProduct from './test/SearchProduct';
-import Menu from './Menu/Menu';
+// import Menu from './Menu/Menu';
 import MenuModal from './Modal/Modal';
 import TableWithSearch from './Table/TableWithSearch';
 // import React from 'react';
