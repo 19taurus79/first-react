@@ -1,0 +1,24 @@
+.menuItem {
+  background-color: #d2d2d2; /* зеленый цвет */
+  color: #0c0c0c; /* белый текст */
+  padding: 10px 20px; /* отступы */
+  border: none; /* без границ */
+  border-radius: 5px; /* закругленные углы */
+  cursor: pointer; /* указатель мыши */
+}
+
+.menuItem:hover {
+  background-color: #b9d4f0; /* темнее зеленый цвет при наведении */
+}
+
+.menuItem:active {
+  background-color: #5fb5eb; /* еще темнее зеленый цвет при клике */
+}
+.menu {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* расстояние между элементами */
+  list-style: none; /* убираем маркеры списка */
+}
