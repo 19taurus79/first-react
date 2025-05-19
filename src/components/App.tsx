@@ -9,14 +9,17 @@
 // import TableProducts from './test/TableRemains';
 // import SearchProduct from './test/SearchProduct';
 // import Menu from './Menu/Menu';
+import axios from 'axios';
 import MenuModal from './Modal/Modal';
 import TableWithSearch from './Table/TableWithSearch';
 // import React from 'react';
 import { useEffect, useState } from 'react';
+import ClientTable from './Table/ClientTable';
 export default function App() {
   const ALLOWED_IDS = [123456789, 987654321, 548019148]; // замените на нужные Telegram ID
 
   const [isAllowed, setIsAllowed] = useState<boolean | null>(null);
+  const [user, setUser] = useState<string | null>(null);
 
   useEffect(() => {
     // Проверяем наличие Telegram WebApp SDK
@@ -27,6 +30,10 @@ export default function App() {
         setIsAllowed(true);
       } else if (userId && ALLOWED_IDS.includes(userId)) {
         setIsAllowed(true);
+        const userName = axios
+          .get(`http://127.0.0.1:8000/get_user${userId}`)
+          .then((response) => response.data.name);
+        setUser(userId.toString());
       } else {
         setIsAllowed(false);
       }
@@ -46,7 +53,8 @@ export default function App() {
     <div className="container">
       <MenuModal />
       {/* <Menu /> */}
-      <TableWithSearch />
+      <TableWithSearch userId={user} />
+      <ClientTable userId={user} />
     </div>
   );
 }
