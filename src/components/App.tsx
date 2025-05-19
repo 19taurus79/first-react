@@ -30,7 +30,7 @@ export default function App() {
         setIsAllowed(true);
       } else if (userId && ALLOWED_IDS.includes(userId)) {
         setIsAllowed(true);
-        const userName = axios
+        axios
           .get(`http://127.0.0.1:8000/get_user${userId}`)
           .then((response) => response.data.name);
         setUser(userId.toString());
@@ -53,7 +53,7 @@ export default function App() {
     <div className="container">
       <MenuModal />
       {/* <Menu /> */}
-      <TableWithSearch userId={user} />
+      <TableWithSearch />
       <ClientTable userId={user} />
     </div>
   );

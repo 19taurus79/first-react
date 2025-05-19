@@ -5,7 +5,10 @@ interface Client {
   id: string;
   client: string;
 }
-export default function ClientTable(userId: string | null) {
+interface ClientTableProps {
+  userId: string | null;
+}
+export default function ClientTable({ userId }: ClientTableProps) {
   const [clients, setClients] = useState<Client[]>([]);
   const [user, setUser] = useState<string | null>(null);
   useEffect(() => {
