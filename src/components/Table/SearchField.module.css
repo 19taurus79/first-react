@@ -6,6 +6,7 @@
   margin: 0 0 20px 0;
   outline: none;
   transition: border-color 0.3s;
+  position: relative;
 }
 
 .input:focus {
@@ -32,9 +33,13 @@
   cursor: pointer;
   color: #888;
   transition: background 0.2s, color 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  position: absolute;
+  right: 10px;
+  /* top: 50%; */
+  transform: translateY(-33%);
 }
 
 .clearBtn:hover {
