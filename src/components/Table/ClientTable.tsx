@@ -12,7 +12,7 @@ export default function ClientTable({ userId }: ClientTableProps) {
   const [clients, setClients] = useState<Client[]>([]);
   const [user, setUser] = useState<string | null>(null);
   useEffect(() => {
-    const userId = '5072996747';
+    // const userId = '5072996747';
     axios
       .get(`http://127.0.0.1:8000/get_user${userId}`)
       .then((response) => {
