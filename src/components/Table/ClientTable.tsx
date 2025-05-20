@@ -12,9 +12,9 @@ export default function ClientTable({ userId }: ClientTableProps) {
   const [clients, setClients] = useState<Client[]>([]);
   const [user, setUser] = useState<string | null>(null);
   useEffect(() => {
-    // const userId = '5072996747';
+    // const userId = '548019148';
     axios
-      .get(`http://127.0.0.1:8000/get_user${userId}`)
+      .get(`https://taurus.pp.ua/get_user${userId}`)
       .then((response) => {
         setUser(response.data[0].name);
         console.log('user', response.data[0].name);
@@ -25,7 +25,7 @@ export default function ClientTable({ userId }: ClientTableProps) {
   }, [userId]);
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/clients${user}`)
+      .get(`https://taurus.pp.ua/clients${user}`)
       .then((response) => {
         setClients(response.data);
         console.log('clients', response.data);
