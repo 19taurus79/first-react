@@ -20,7 +20,16 @@ export default function App() {
 
   const [isAllowed, setIsAllowed] = useState<boolean | null>(null);
   const [user, setUser] = useState<string | null>(null);
-
+  const [remainsIsOpen, setRemainsIsOpen] = useState<boolean>(true);
+  const [clientIsOpen, setClientIsOpen] = useState<boolean>(false);
+  const handleRemainsOpen = () => {
+    setRemainsIsOpen(true);
+    setClientIsOpen(false);
+  };
+  const handleClientOpen = () => {
+    setClientIsOpen(true);
+    setRemainsIsOpen(false);
+  };
   useEffect(() => {
     // Проверяем наличие Telegram WebApp SDK
     if (window.Telegram && window.Telegram.WebApp) {
@@ -51,10 +60,13 @@ export default function App() {
   // };
   return (
     <div className="container">
-      <MenuModal />
+      <MenuModal
+        remainsIsOpen={handleRemainsOpen}
+        clientIsOpen={handleClientOpen}
+      />
       {/* <Menu /> */}
-      <TableWithSearch />
-      <ClientTable userId={user} />
+      {remainsIsOpen && <TableWithSearch />}
+      {clientIsOpen && <ClientTable userId={user} />}
     </div>
   );
 }
